@@ -6,11 +6,12 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/hex-2025-vue-camp-todo-api',
   plugins: [
     vue(),
     vueDevTools(),
   ],
-  base: '/hex-2025-vue-camp-todo/', // 或 '/你的repo名稱/'，依據你的部署位置
+  base: '/hex-2025-vue-camp-todo-api/', // 或 '/你的repo名稱/'，依據你的部署位置
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

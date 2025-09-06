@@ -7,6 +7,10 @@ import RegisterView from '../views/RegisterView.vue'
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
+    // {
+    //   path: '/',
+    //   redirect: '/register' // 或 '/todolist'，看你想預設去哪一頁
+    // },
     {
       path: '/todolist',
       name: 'todolist',

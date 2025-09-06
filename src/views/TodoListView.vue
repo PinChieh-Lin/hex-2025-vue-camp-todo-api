@@ -4,7 +4,7 @@
     <nav>
       <h1><a href="#">ONLINE TODO LIST</a></h1>
       <ul>
-        <li class="todo_sm"><a href="#"><span>王小明的代辦</span></a></li>
+        <li class="todo_sm"><a href="#"><span>叮咚的代辦</span></a></li>
         <li><a href="#loginPage">登出</a></li>
       </ul>
     </nav>
@@ -22,7 +22,7 @@
 <script setup>
 import TodoList from '@/components/TodoList.vue';
 import TodoForm from '../components/TodoForm.vue';
-
+import { addTodo as addTodoApi } from '../../utils/api' // 引入 API 方法
 import { ref } from 'vue'
 
 // 響應式資料
@@ -40,6 +40,8 @@ const addTodo = (content) => {
     })
   }
 }
+
+
 
 const removeTodo = (id) => {
   todos.value = todos.value.filter(t => t.id !== id)

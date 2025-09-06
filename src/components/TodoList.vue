@@ -1,11 +1,11 @@
 <template>
     <div class="todoList_list">
         <ul class="todoList_tab">
-            <li><a href="#" @click="filterStatus = 'all'" :class="{ active: filterStatus === 'all' }">全部</a></li>
+            <li><a href="#" @click.prevent="filterStatus = 'all'" :class="{ active: filterStatus === 'all' }">全部</a></li>
             <!-- :class="{active : filterStatus ===  'all'}" 代表當filterStatus等於'all'時，這個<li>會有active這個class -->
-            <li><a href="#" @click="filterStatus = 'imcomplete'"
+            <li><a href="#" @click.prevent="filterStatus = 'imcomplete'"
                     :class="{ active: filterStatus === 'imcomplete' }">待完成</a></li>
-            <li><a href="#" @click="filterStatus = 'completed'"
+            <li><a href="#" @click.prevent="filterStatus = 'completed'"
                     :class="{ active: filterStatus === 'completed' }">已完成</a></li>
         </ul>
         <!--{{ filterStatus }}  測試filterStatus有沒有改變 -->
@@ -20,11 +20,12 @@ filteredTodos則是根據目前篩選狀態（全部、待完成、已完成）�
                 <!-- @remove-todo="emit('remove-todo', $event)" 代表監聽子元件TodoItem發出的remove-todo事件，並執行父元件TodoList的remove-todo事件，是emmit傳入子層 $event代表事件的物件或是子原件傳出的資料-->
             </ul>
             <div class="todoList_statistics">
-                <p> {{incompleteTodos}} 個未完成項目</p>
+              <p v-if="incompleteTodos > 0">{{ incompleteTodos }} 個未完成項目</p>
+                <p v-else>目前尚無待辦事項</p>
             </div>
         </div>
+        <!-- {{ todos }} 測試props有沒有接收到 -->
     </div>
-    <!-- {{ todos }} 測試props有沒有接收到 -->
 </template>
 
 <script setup>

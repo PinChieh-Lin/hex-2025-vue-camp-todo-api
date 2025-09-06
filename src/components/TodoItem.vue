@@ -5,7 +5,7 @@
             <!-- v-model="todo.status"綁定checkbox的選取狀態 -->
             {{ todo.content }}
         </label>
-        <a href="#" @click="handleRemoveTodo(todo.id)">
+        <a href="#" @click.prevent="handleRemoveTodo(todo.id)">
             <i class="fa fa-times"></i>
         </a>
     </li>
